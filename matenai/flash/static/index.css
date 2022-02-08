@@ -1,0 +1,142 @@
+#res-search {
+    margin-top: 30px;
+}
+
+
+.btn-outline {
+    color: black;
+    background-color: #ffffff;
+    border-color: #f4e3d4;
+    letter-spacing: 0.05em;
+    border-radius: 5;
+  }
+  
+  .btn-outline:hover,
+  .btn-outline:active,
+  .btn-outline:focus,
+  .btn-outline.active {
+    background: #f4e3d4;
+    color: #000000;
+    border-color: #f4e3d4;
+    
+  }
+
+  .btn-custom {
+      background-color: #f4e3d4;
+      border-color: lightgray;
+      color: black;
+  }
+
+  .btn-custom:hover, 
+  .btn-custom:focus,
+  .btn-custom:active {
+    background-color: #e0cab3;
+    border-color: lightgray;
+    color: black;
+}
+
+#brand {
+    font-size: 26px;
+}
+
+.card {
+    width: 17rem;
+    margin: 2rem 0;
+    border-radius: 20px;
+    box-shadow: 10px 10px 1px rgba(244, 227, 212, .3);
+}
+.card > img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 10px 10px 1px rgba(244, 227, 212, .3);
+}
+  @media only screen and (max-width: 1000px) {
+    .card {
+        width: 14rem;
+        box-shadow: 10px 10px 1px rgba(244, 227, 212, .3);
+    }
+ }
+
+ @media only screen and (max-width: 767px) {
+    .def1 {
+        text-align: left;
+        padding-left: 0;
+    }
+    .login_register {
+        width: 400px;
+    }
+ }
+
+.def1 {
+    color: rgba(0,0,0,.5);
+    padding-top: .46874rem;
+    background-color: #f4e3d4;
+}
+
+
+ .badge-info{
+     color: #f4e3d4;
+     background-color: black;
+ }
+
+ .aldef {
+     background-color: #f4e3d4;
+     text-align: center;
+     
+ }
+
+ #suggest {
+     margin-top: 2rem;
+ }
+
+ .login_register {
+    margin: 5rem auto;
+    padding: 0rem 2rem 2rem 2rem;
+    max-width: 500px;
+    border: 5px solid #f4e3d4;
+    border-radius: 20px;
+    box-shadow: 10px 10px 1px rgba(244, 227, 212, .3);
+ }
+
+ .login_register > h3{
+    text-align: center;
+    margin: 2rem 0;
+ }
+
+
+.incorrect {
+    margin: 20px;
+}
+
+.menu-incorrect {
+    margin-top: 20px;
+}
+
+.res-card {
+    color: black;
+}
+
+.res-card:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.cust_res {
+    margin: 2em 0em;
+}
+
+.menu-items {
+    margin: 0px -15px 20px -15px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.container-table {
+    max-width: 500px;
+    margin: 2em auto;
+    text-align: center;
+}

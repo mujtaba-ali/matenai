@@ -1,0 +1,69 @@
+{% extends 'layout.html' %}
+
+{% block code %}
+<script>
+    $(document).ready(function() {
+        var max = 100;
+        var wrapper = $(".input_wrap");
+        var add_button = $(".add_field");
+
+        var i = 1;
+        $(add_button).click(function(e) {
+            e.preventDefault();
+            if(i<max){
+                i++;
+                $(wrapper).append('<div class="row menu-items"><div class="col-7"><input type="text" name="item" class="form-control" placeholder="Item"></div><div class="col-3"><input type="number" name="price" min="1" class="form-control" placeholder="Price"></div><div class="col"><a href="" class="remove"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M11.5 0c6.347 0 11.5 5.153 11.5 11.5s-5.153 11.5-11.5 11.5-11.5-5.153-11.5-11.5 5.153-11.5 11.5-11.5zm0 1c5.795 0 10.5 4.705 10.5 10.5s-4.705 10.5-10.5 10.5-10.5-4.705-10.5-10.5 4.705-10.5 10.5-10.5zm-6.5 10h13v1h-13v-1z"/></svg></a></div></div>')
+            }
+        });
+        $(wrapper).on("click", ".remove", function(e) {
+            e.preventDefault();
+            $(this).parent('div').parent('div').remove();
+            i--;
+        })
+
+    });
+</script>
+{% endblock %}
+
+{% block title %}
+Menu
+{% endblock %}
+
+{% block body %}
+<!-- <form action="/add_menu" method="POST">
+    {% csrf_token %}
+    <div class="input_wrap">
+        <button class="add_field">add</button>
+        <div><input type="text" name="menu_items[]"></div>
+    </div>
+    <input type="submit" value="create">
+</form> -->
+<div class="login_register container-sm">
+    {% if message %}
+    <div class="alert alert-danger menu-incorrect" role="alert">
+      {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    {% endif %}
+    <h3>Add to Menu</h3>
+    <form action="/add_menu" method="POST">
+        {% csrf_token %}
+        <div class="input_wrap">
+            <div class="row menu-items">
+                <div class="col-7">
+                <input type="text" name="item" class="form-control" placeholder="Item">
+                </div>
+                <div class="col-3">
+                <input type="number" name="price" min="1" class="form-control" placeholder="Price">
+                </div>
+                <div class="col">
+                    <a href="" class="add_field"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M11.5 0c6.347 0 11.5 5.153 11.5 11.5s-5.153 11.5-11.5 11.5-11.5-5.153-11.5-11.5 5.153-11.5 11.5-11.5zm0 1c5.795 0 10.5 4.705 10.5 10.5s-4.705 10.5-10.5 10.5-10.5-4.705-10.5-10.5 4.705-10.5 10.5-10.5zm.5 10h6v1h-6v6h-1v-6h-6v-1h6v-6h1v6z"/></svg></a>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-custom" type="submit">Create</button>
+    </form>
+    </div>
+{% endblock %}

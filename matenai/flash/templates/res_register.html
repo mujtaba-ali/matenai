@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    LogIn!
+{% endblock %}
+
+
+{% block body %}
+<div class="login_register container-sm">
+    <h3>Continue Registration</h3>
+<form action="/res_register" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="InputText1">Restaurant Name</label>
+        <input type="text" class="form-control" id="InputText1" name="res_name" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label for="img1">Image Url</label>
+        <input type="url" class="form-control" id="img1" name="image_url" autocomplete="off">
+      </div> 
+      <div class="form-group">
+        <label for="type">Cuisine</label>
+        <input type="text" class="form-control" id="type" name="cuisine" autocomplete="off">
+      </div> 
+      <div class="form-group">
+        <label for="Textarea1">Address</label>
+        <textarea type="text" class="form-control" id="Textarea1" name="address"></textarea>
+      </div> 
+      <div class="form-group">
+        <label for="numer1">Zip</label>
+        <input type="number" class="form-control" id="number1" name="zip_code" autocomplete="off">
+      </div> 
+    <button type="submit" class="btn btn-custom">Register</button>
+  </form>
+</div>
+{% endblock %}

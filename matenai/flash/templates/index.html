@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search!
+{% endblock %}
+
+{% block body %}
+    <div class="container-sm">
+        <div id="res-search" class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search for a Restaurant" aria-label="Search for a Restaurant" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline" type="button">Search</button>
+            </div>
+          </div>
+
+          {% if not user.is_authenticated %}
+          <div class="alert aldef alert-dismissible fade show" role="alert">
+            You can discover the Restaurant menus as a Guest 
+            however you will not be able to order or save your fav meals
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          {% endif %}
+          
+          <h2 id="suggest">Are you at any of these?</h2>
+
+            <div class="row">
+                
+                <div class="col-6 col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="https://bit.ly/2XUtMOH" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <!-- <a href="#" class="btn btn-custom">I'm Here</a> -->
+                        </div>
+                      </div>
+                </div>
+                <div class="col-6 col-md-4">
+                  <a href="#" class="res-card">
+                    <div class="card">
+                      <img class="card-img-top" src="https://bit.ly/2XUtMOH" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <!-- <a href="#" class="btn btn-custom">I'm Here</a> -->
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="https://bit.ly/2XUtMOH" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <!-- <a href="#" class="btn btn-custom">I'm Here</a> -->
+                        </div>
+                      </div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="https://bit.ly/2XUtMOH" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <!-- <a href="#" class="btn btn-custom">I'm Here</a> -->
+                        </div>
+                      </div>
+                </div>
+            </div>
+              </div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    LogIn!
+{% endblock %}
+
+
+{% block body %}
+
+<div class="login_register container-sm">
+    <h3>LogIn or <a href="{% url 'register' %}">Register</a></h3>
+  {% if message %}
+<div class="alert alert-danger incorrect" role="alert">
+  {{ message }}
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+</div>
+{% endif %}
+<form action="/login" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="Text">Username</label>
+      <input type="text" class="form-control" name="username" id="Text" aria-describedby="emailHelp" autocomplete="off">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+    </div>
+    <button type="submit" class="btn btn-custom">LogIn</button>
+  </form>
+</div>
+{% endblock %}

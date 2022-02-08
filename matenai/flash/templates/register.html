@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    LogIn!
+{% endblock %}
+
+
+{% block body %}
+
+<div class="login_register container-sm">
+    <h3>Register or <a href="{% url 'login' %}">Login</a></h3>
+    {% if message %}
+    <div class="alert alert-danger" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %}
+<form action="/register" method="POST">
+    {% csrf_token %}
+    <div class="cust_res">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="is_res" id="inlineRadio1" value="False" checked>
+        <label class="form-check-label" for="inlineRadio1">Customer</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="is_res" id="inlineRadio2" value="True">
+        <label class="form-check-label" for="inlineRadio2">Restaurant</label>
+      </div>
+    </div>
+      <div class="form-group">
+        <label for="InputText1">Username</label>
+        <input type="text" class="form-control" id="InputText1" name="username" autocomplete="off">
+      </div>
+    <div class="form-group">
+      <label for="InputEmail1">Email address</label>
+      <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" name="email" autocomplete="off">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="InputPassword1">Password</label>
+      <input type="password" class="form-control" id="InputPassword1" name="password">
+    </div>
+    <div class="form-group">
+        <label for="InputPassword2">Confirm Password</label>
+        <input type="password" class="form-control" id="InputPassword2" name="confirmation">
+      </div>
+    <button type="submit" class="btn btn-custom">Register</button>
+  </form>
+</div>
+{% endblock %}

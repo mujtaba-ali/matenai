@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="login_register container-sm">
+        {% if message %}
+        <div class="alert alert-danger menu-incorrect" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        {% endif %}
+        <h3>Edit Menu</h3>
+        <form action="/edit_menu" method="POST">
+            {% csrf_token %}
+            <div class="input_wrap">
+                    {% for item in menu %}
+                <div class="row menu-items">
+                        <div class="col-7">
+                        <input type="text" name="item" class="form-control" placeholder="Item" value="{{ item.item }}">
+                        </div>
+                        <div class="col-3">
+                        <input type="number" name="price" min="1" class="form-control" placeholder="Price" value="{{ item.price }}">
+                        </div>
+                    </div>
+                    {% endfor %} 
+                <div class="row menu-items">
+                    <div class="col-7">
+                    <input type="text" name="item" class="form-control" placeholder="Item">
+                    </div>
+                    <div class="col-3">
+                    <input type="number" name="price" min="1" class="form-control" placeholder="Price">
+                    </div>
+                    <div class="col">
+                        <a href="" class="add_field"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M11.5 0c6.347 0 11.5 5.153 11.5 11.5s-5.153 11.5-11.5 11.5-11.5-5.153-11.5-11.5 5.153-11.5 11.5-11.5zm0 1c5.795 0 10.5 4.705 10.5 10.5s-4.705 10.5-10.5 10.5-10.5-4.705-10.5-10.5 4.705-10.5 10.5-10.5zm.5 10h6v1h-6v6h-1v-6h-6v-1h6v-6h1v6z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-custom" type="submit">Create</button>
+        </form>
+    </div>
+{% endblock %}

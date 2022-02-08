@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container-sm container-table">
+    {% if menu %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Items</th>
+                <th scope="col">Prices</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for items in menu %}
+            <tr>
+                <td>{{ items.item }}</td>
+                <td>₹ {{ items.price }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'add_menu' %}" class="btn btn-custom">Add/Edit</a>
+    {% else %}
+        <h3>Nothing on the menu yet. <a href="{% url 'add_menu' %}">Add</a></h3>
+    {% endif %}
+</div>
+
+{% endblock %}
